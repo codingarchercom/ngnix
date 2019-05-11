@@ -1,0 +1,20 @@
+events {}
+
+http {
+
+    include mime.types;
+    server {
+        listen 80;
+        server_name 206.189.87.165 default_server;
+        root /www/server2;
+
+        location = /match-server2 {
+            return 200 'match from server2';
+        }
+
+        location = /external_host_redirect/match-server2 {
+            return 200 'match from server2 for extenral host redirect path';
+        }
+        
+    }
+}
